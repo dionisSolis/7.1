@@ -1,0 +1,44 @@
+using System;
+namespace qwerty
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Введите сначала ник, затем пароль");
+            Player firstPlayer = new Player(Enter(), Enter());
+            firstPlayer.ShowInfo();
+        }
+
+        static string Enter()
+        {
+            string userInput = Console.ReadLine();
+
+            while (userInput == "" || userInput[0] == ' ')
+            {
+                Console.WriteLine("Введите данные корректно");
+                userInput = Console.ReadLine();
+            }
+
+            return userInput;
+        }
+    }
+
+    class Player
+    {
+        public string UserName;
+        public string Password;
+
+        public Player(string userName, string password)
+        {
+            UserName = userName;
+            Password = password;
+        }
+
+        public void ShowInfo()
+        {
+            Console.WriteLine("\nНик - " + UserName);
+            Console.WriteLine("Пароль - " + Password);
+        }
+    }
+}
